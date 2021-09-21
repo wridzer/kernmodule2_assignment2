@@ -4,26 +4,44 @@ using UnityEngine;
 
 public class InputHandler
 {
-    private Dictionary<KeyCode, ICommand> keyCommands = new Dictionary<KeyCode, ICommand>();
+    private Dictionary<KeyCode, System.Action> keyCommands = new Dictionary<KeyCode, System.Action>();
 
-    public void HandleInput()
+    public void AddCommand(KeyCode _key, System.Action _command)
     {
-        foreach(var KeyCode in keyCommands)
+        if (!keyCommands.ContainsKey(_key))
         {
-            if (Input.GetKeyDown(KeyCode.Key))
+            keyCommands.Add(_key, null);
+        }
+        keyCommands[_key] = _command;
+    }
+
+    public void RemoveCommand(KeyCode _key)
+    {
+        if (keyCommands.ContainsKey(_key))
+        {
+            keyCommands.Remove(_key);
+        }
+    }
+    
+    public void RemoveCommand(System.Action _command)
+    {
+        foreach (KeyValuePair<KeyCode, System.Action> entry in keyCommands)
+        {
+            if (entry.Value == _command)
             {
-                KeyCode.Value.Execute();
+                keyCommands.Remove(entry.Key);
             }
         }
     }
 
-    private void Start()
+    public void HandleInput()
     {
-        ComDoThings DoThings = new ComDoThings();
-        keyCommands.Add(KeyCode.E, DoThings);
+        foreach (KeyValuePair<KeyCode, System.Action> entry in keyCommands)
+        {
+            if (Input.GetKey(entry.Key))
+            {
+                entry.Value();
+            }
+        }
     }
-
-    //commands interface and classes
-
-    //add and remove commands
 }
