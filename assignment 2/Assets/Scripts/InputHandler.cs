@@ -7,6 +7,7 @@ public class InputHandler
     public List<System.Action> actionList = new List<System.Action>();
     private Dictionary<KeyCode, System.Action> keyCommands = new Dictionary<KeyCode, System.Action>();
 
+    //Add commands with keys
     public void AddCommand(KeyCode _key, System.Action _command)
     {
         if (!keyCommands.ContainsKey(_key))
@@ -17,6 +18,7 @@ public class InputHandler
         actionList.Add(_command);
     }
 
+    //Remove command by key
     public void RemoveCommand(KeyCode _key)
     {
         if (keyCommands.ContainsKey(_key))
@@ -25,6 +27,7 @@ public class InputHandler
         }
     }
     
+    //remove command by command
     public void RemoveCommand(System.Action _command)
     {
         foreach (KeyValuePair<KeyCode, System.Action> entry in keyCommands)
@@ -36,11 +39,12 @@ public class InputHandler
         }
     }
 
+    //Execute the commands
     public void HandleInput()
     {
         foreach (KeyValuePair<KeyCode, System.Action> entry in keyCommands)
         {
-            if (Input.GetKey(entry.Key))
+            if (Input.GetKeyDown(entry.Key))
             {
                 entry.Value();
             }

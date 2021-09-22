@@ -576,10 +576,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInstance: {fileID: 117545782}
+  menuInstance: {fileID: 1592103256}
   forward: 119
   backward: 115
   left: 97
   right: 100
+  menu: 27
 --- !u!4 &590213787
 Transform:
   m_ObjectHideFlags: 0

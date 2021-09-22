@@ -6,6 +6,7 @@ public class Moveable
 {
     private GameObject agent;
 
+    //In constructor I add all the movement functions to the inputhandler
     public Moveable(InputHandler _inputHandler, GameObject _agent, KeyCode _forward, KeyCode _backward, KeyCode _left, KeyCode _right)
     {
         agent = _agent;
