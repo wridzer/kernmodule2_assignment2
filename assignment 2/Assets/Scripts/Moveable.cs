@@ -15,19 +15,19 @@ public class Moveable
         _inputHandler.AddCommand(_right, Right);
     }
 
-    private void Forward()
+    public void Forward()
     {
         agent?.transform.Translate(new Vector3(1, 0, 0));
     }
-    private void Backward()
+    public void Backward()
     {
         agent?.transform.Translate(new Vector3(-1, 0, 0));
     }
-    private void Left()
+    public void Left()
     {
         agent?.transform.Translate(new Vector3(0, 0, 1));
     }
-    private void Right()
+    public void Right()
     {
         agent?.transform.Translate(new Vector3(0, 0, -1));
     }

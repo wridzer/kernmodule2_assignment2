@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EventType
 {    
-    GET_INPUT = 0,
+    INPUT_CHANGE = 0,
 }
 
 public static class EventManager<T>

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputHandler
 {
+    public List<System.Action> actionList = new List<System.Action>();
     private Dictionary<KeyCode, System.Action> keyCommands = new Dictionary<KeyCode, System.Action>();
 
     public void AddCommand(KeyCode _key, System.Action _command)
@@ -13,6 +14,7 @@ public class InputHandler
             keyCommands.Add(_key, null);
         }
         keyCommands[_key] = _command;
+        actionList.Add(_command);
     }
 
     public void RemoveCommand(KeyCode _key)
