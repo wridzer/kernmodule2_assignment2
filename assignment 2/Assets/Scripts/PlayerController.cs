@@ -5,14 +5,11 @@ using UnityEngine;
 public class PlayerController
 {
     private GameObject playerInstance;
+    private Movement movement;
 
     public PlayerController(GameObject _playerInstance)
     {
         playerInstance = _playerInstance;
-    }
-
-    private void Move()
-    {
-
+        movement = new Movement(playerInstance);
     }
 }

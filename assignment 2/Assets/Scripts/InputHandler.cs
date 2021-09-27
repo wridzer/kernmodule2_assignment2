@@ -9,11 +9,7 @@ public class InputHandler
     //Add commands with keys
     public void AddCommand(KeyCode _key, EventType _command)
     {
-        if (!keyCommands.ContainsKey(_key))
-        {
-            keyCommands.Add(_key, null);
-        }
-        keyCommands[_key] = _command;
+        keyCommands.Add(_key, _command);
     }
 
     //Remove command by key
@@ -42,9 +38,9 @@ public class InputHandler
     {
         foreach (KeyValuePair<KeyCode, EventType> entry in keyCommands)
         {
-            if (Input.GetKeyDown(entry.Key))
+            if (Input.GetKey(entry.Key))
             {
-                //invoke event
+                EventManager<KeyCode>.Invoke(entry.Value, entry.Key);
             }
         }
     }

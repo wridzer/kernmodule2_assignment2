@@ -21,9 +21,11 @@ public static class EventManager<T>
         if (!eventDictionary.ContainsKey(_type))
         {
             eventDictionary.Add(_type, null);
+            Debug.Log("Added: " + _type + " to dictionary");
         }
         eventDictionary[_type] += _function;
     }
+
     public static void UnSubscribe(EventType _type, System.Action<T> _function) 
     {
         if (eventDictionary.ContainsKey(_type) && eventDictionary[_type] != null)
@@ -31,8 +33,11 @@ public static class EventManager<T>
             eventDictionary[_type] -= _function;
         }
     }
+
     public static void Invoke(EventType _type, T _arg1)
     {
+        Debug.Log("Try to invoke: " + _type + " event");
         eventDictionary[_type]?.Invoke(_arg1);
     }
+
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputSettings
 {
-    //This script does all the input and implements the default settings
+
     public KeyCode forward = KeyCode.W;
     public KeyCode backward = KeyCode.S;
     public KeyCode left = KeyCode.A;
@@ -13,13 +13,12 @@ public class InputSettings
 
     private InputHandler inputHandler;
 
-    InputSettings(InputHandler _inputHandler)
+    public InputSettings(InputHandler _inputHandler)
     {
         inputHandler = _inputHandler;
-    }
-
-    private void start()
-    {
         inputHandler.AddCommand(forward, EventType.MOVE_FORWARDS);
+        inputHandler.AddCommand(backward, EventType.MOVE_BACKWARDS);
+        inputHandler.AddCommand(left, EventType.MOVE_LEFT);
+        inputHandler.AddCommand(right, EventType.MOVE_RIGHT);
     }
 }
