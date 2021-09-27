@@ -5,11 +5,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private InputHandler inputHandler;
+    private InputSettings inputSettings;
+    private PlayerController player;
+    [SerializeField] private GameObject playerInstance;
 
     // Start is called before the first frame update
     void Start()
     {
-        inputHandler = InputSettings.instance.inputHandler;
+        inputHandler = new InputHandler();
+        inputSettings = new InputSettings(inputHandler);
+        player = new PlayerController(playerInstance);
     }
 
     // Update is called once per frame

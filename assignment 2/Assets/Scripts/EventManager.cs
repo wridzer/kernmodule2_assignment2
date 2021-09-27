@@ -4,7 +4,12 @@ using UnityEngine;
 
 public enum EventType
 {    
-    INPUT_CHANGE = 0,
+    JUMP             = 0,
+    RELOAD           = 1,
+    MOVE_FORWARDS    = 2,
+    MOVE_BACKWARDS   = 3,
+    MOVE_LEFT        = 4,
+    MOVE_RIGHT       = 5
 }
 
 public static class EventManager<T>

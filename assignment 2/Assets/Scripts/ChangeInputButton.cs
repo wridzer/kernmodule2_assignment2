@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeInputButton : MonoBehaviour
 {
     //This script remaps some buttons using the menubuttons
-
+    /*
     private bool isClicked = false;
     private KeyCode key;
     System.Action action;
@@ -48,5 +48,5 @@ public class ChangeInputButton : MonoBehaviour
                 CheckInput(action);
             }
         }
-    }
+    }*/
 }
